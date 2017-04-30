@@ -4,6 +4,11 @@
     state: absent
     path: "{{ build_dir }}/"
 
+- name: Build build_dir
+  file:
+    state: directory
+    path: "{{ build_dir }}/"
+
 - name: check out a git repository
   local_action:
     module: git

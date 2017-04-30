@@ -6,5 +6,5 @@
     - role: drupal-git-deployment
       git_source_repository_path: git@github.com:KEY-TEC/drupal-8-keytec-demo.git
       git_target_repository_path: git@github.com:KEY-TEC/drupal-8-keytec-demo-target.git
-      build_dir: /home/travis
+      build_dir: /home/travis/ansible
       branch: "gitlab-automate"
