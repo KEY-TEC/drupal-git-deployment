@@ -1,6 +1,8 @@
 ---
-- name: clean up
-  shell: rm -R "{{ build_dir }}"
+- name: Clean build_dir
+  file:
+    state: absent
+    path: "{{ build_dir }}/"
 
 - name: check out a git repository
   local_action:
