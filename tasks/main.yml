@@ -10,6 +10,7 @@
     repo: "{{ git_source_repository_path }}"
     dest: "{{ build_dir }}"
     version: "{{ branch }}"
+    accept_hostkey: true
 
 - name: git add remote
   shell: git remote add remote "{{ git_target_repository_path }}"
