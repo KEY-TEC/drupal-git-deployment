@@ -27,9 +27,8 @@ install:
 
   # Run ssh-agent (inside the build environment)
   - eval $(ssh-agent -s)
-  - pwd
   # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
-  - ssh-add < tests/id_rsa
+  - ssh-add < $TRAVIS_BUILD_DIR/tests/id_rsa
 
   - git config --global push.default simple
 
