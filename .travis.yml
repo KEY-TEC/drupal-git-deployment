@@ -29,8 +29,7 @@ install:
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
 
 script:
-    - |
-
+  - |
          declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/XXXXX)"
 
          # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,6 +52,9 @@ script:
                 "Host github.com" \
                 "  IdentityFile $SSH_FILE" \
                 "  LogLevel ERROR" >> ~/.ssh/config
+
+
+
   # Check the role/playbook's syntax.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 
