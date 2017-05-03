@@ -19,18 +19,17 @@ before_install:
   # Install php and curl
   - sudo apt-get install --yes php5-cli curl
 
+   openssl aes-256-cbc -K $encrypted_41bee1b0b063_key -iv $encrypted_41bee1b0b063_iv -in id_rsa.enc -out tests/id_rsa -d
+
+
+
 install:
   # Install Ansible.
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
 
-  # Run ssh-agent (inside the build environment)
-  - eval $(ssh-agent -s)
-  # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
-  - ssh-add < $TRAVIS_BUILD_DIR/tests/id_rsa
 
-  - git config --global push.default simple
+
 
 script:
   # Check the role/playbook's syntax.
