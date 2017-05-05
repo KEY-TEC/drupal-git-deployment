@@ -55,6 +55,8 @@ script:
 
 
 
+  # Run ssh-agent (inside the build environment)
+  - eval $(ssh-agent -s)
   - ssh-add ~/.ssh/id_rsa
   # Check the role/playbook's syntax.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
