@@ -44,6 +44,6 @@
     chdir: "{{ build_dir }}"
 
 - name: git push
-  shell: "git push --force remote {{ branch }}:{{ branch }}"
+  shell: "git push --force remote {{ branch }}:{{ branch }}-build"
   args:
     chdir: "{{ build_dir }}"
