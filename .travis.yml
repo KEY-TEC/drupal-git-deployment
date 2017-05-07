@@ -5,6 +5,9 @@ dist: trusty
 language: php
 php: "7.0"
 
+services:
+  - docker
+
 env:
   matrix:
   - ANSIBLE_VERSION=latest
