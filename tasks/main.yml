@@ -29,9 +29,9 @@
     content: ""
 
 - name: composer install
-  composer:
-    command: install
-    working_dir: "{{ build_dir }}"
+  shell: composer install
+  args:
+    chdir: "{{ build_dir }}"
 
 - name: git add files
   shell: git add .

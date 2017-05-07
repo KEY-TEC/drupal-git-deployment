@@ -19,7 +19,7 @@ before_install:
   - sudo apt-get update -qq
 
   # Install php and curl
-  - sudo apt-get install --yes php5-cli curl
+  - sudo apt-get install --yes php7.0-cli curl php7.0-dom php7.0-mbstring
 
 install:
   # Install Ansible.
@@ -35,7 +35,7 @@ script:
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-    ansible-playbook -i tests/inventory tests/test.yml
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
