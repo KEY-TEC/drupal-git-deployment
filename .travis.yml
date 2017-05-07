@@ -19,7 +19,7 @@ branches:
 
 before_install:
   # Install php and curl
-  - ./ssh.sh
+  - ./before_install.sh
 
 install:
   # Install Ansible.
