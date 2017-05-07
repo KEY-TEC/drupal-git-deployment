@@ -1,9 +1,6 @@
 ---
-sudo: false
+sudo: required
 dist: trusty
-
-services:
-  - docker
 
 language: php
 php: "7.0"
@@ -23,7 +20,7 @@ branches:
 before_install:
   # Install php and curl
   - ./ssh.sh
-  - cat ../deploy_key
+
 install:
   # Install Ansible.
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
@@ -34,7 +31,8 @@ script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 
   # Run the role/playbook with ansible-playbook.
-  - ansible-playbook -i tests/inventory tests/test.yml -vvvv
+  - ansible-playbook -i tests/inventory tests/test.yml -vvvv --connection=local
+
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
