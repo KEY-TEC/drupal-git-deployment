@@ -19,7 +19,7 @@ before_install:
   - sudo apt-get update -qq
 
   # Install php and curl
-  - sudo apt-get install --yes php7.0-cli curl php7.0-dom php7.0-mbstring
+  - sudo apt-get install --yes php5.0-cli curl php5.0-dom php5.0-mbstring
 
 install:
   # Install Ansible.
