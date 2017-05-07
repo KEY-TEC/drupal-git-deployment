@@ -1,7 +1,7 @@
 ---
 - name: Deploy gitlab repository to acquia repository
   hosts: localhost
-  remote_user: root
+  remote_user: cw
   roles:
     - role: drupal-git-deployment
       git_source_repository_path: git@github.com:KEY-TEC/drupal-8-keytec-demo.git
