@@ -18,10 +18,8 @@ branches:
     - master
 
 before_install:
-  - sudo apt-get update -qq
-
   # Install php and curl
-  - ssh.sh
+  - ./ssh.sh
 
 install:
   # Install Ansible.
