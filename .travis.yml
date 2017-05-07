@@ -1,6 +1,9 @@
 ---
-sudo: required
+sudo: false
 dist: trusty
+
+services:
+  - docker
 
 language: php
 php: "7.0"
