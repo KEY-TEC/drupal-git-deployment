@@ -1,0 +1,22 @@
+# Basic LAMP stack
+
+version: "2.1"
+
+services:
+  # CLI
+  # Used for all console commands and tools.
+  cli:
+    hostname: cli
+    image: docksal/cli:1.2-php7
+    volumes:
+      # Project root volume
+      - project_root:/var/drupal-git-deployment:rw
+      # Host home volume (for SSH keys and other credentials).
+      - host_home:/.home:ro
+      # Shared ssh-agent socket
+      - docksal_ssh_agent:/.ssh-agent:ro
+    environment:
+      - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
+    dns:
+      - ${DOCKSAL_DNS1}
+      - ${DOCKSAL_DNS2}
